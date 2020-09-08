@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 #include <math.h>
-#include "./Calculations/calculateABC.h"
+#include "./calculations/calculateABC.h"
 
 float adcToResistance(float adc) {
 

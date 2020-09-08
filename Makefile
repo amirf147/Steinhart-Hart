@@ -3,14 +3,14 @@ CFLAGS = -Wall -Wextra -std=c11
 
 default: steinhartHart
 
-steinhartHart: steinhartHart.o ./Calculations/calculateABC.o
-	$(CC) $(CFLAGS) -o steinhartHart steinhartHart.o ./Calculations/calculateABC.o -lm
+steinhartHart: steinhartHart.o ./calculations/calculateABC.o
+	$(CC) $(CFLAGS) -o steinhartHart steinhartHart.o ./calculations/calculateABC.o -lm
 
-steinhartHart.o: steinhartHart.c ./Calculations/calculateABC.h
+steinhartHart.o: steinhartHart.c ./calculations/calculateABC.h
 	$(CC) $(CFLAGS) -c steinhartHart.c
 
-calculateABC.o: ./Calculations/calculateABC.c ./Calculations/calculateABC.h
-	$(CC) $(CFLAGS) -c ./Calculations/calculateABC.c
+calculateABC.o: ./calculations/calculateABC.c ./calculations/calculateABC.h
+	$(CC) $(CFLAGS) -c ./calculations/calculateABC.c
 
 clean:
-	$(RM) steinhartHart *.o *~ ./Calculations/*.o ./Calculations/*~                                 
+	$(RM) steinhartHart *.o *~ ./calculations/*.o ./calculations/*~                                 
