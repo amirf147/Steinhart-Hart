@@ -2,18 +2,17 @@
  * File:		steinhartHart.c
  * Author:		Amir Farhadi
  * Description:		Use the Steinhart-Hart equation to change the resistance to Celsius
- * 				when given an ADC value.
+ * 		when given an ADC value.
  */
 
 #include <stdio.h>
-#include <math.h> //remember to compile with option -lm
+#include <math.h>
 #include "calculateABC.h"
 
 float adcToResistance(float adc) {
 
 	/* calculates the resistance of the NTC Thermistor when given
-	 * the ADC voltage reading 
-	 */
+	 * the ADC voltage reading */
 
 
 	float resistor = 1000; // resistor that connects to NTC thermistor
@@ -24,51 +23,19 @@ float adcToResistance(float adc) {
 	return ntc;
 }
 
-/*float getC(float l1, float l2, float l3, float y2, float y3) {
-
-	// Calculates the coefficient C in the Steinhart-Hart equation
-
-	float coefficientC;
-
-	coefficientC = ((y3 - y2)/(l3 - l2)) * (1 / (l1 + l2 + l3)); // formula for C
-	
-	return coefficientC;
-
-}
-
-float getB(float y2, float coefficientC, float l1, float l2) {
-
-	// Calculates the coefficient B in the Steinhart-Hart equation
-
-	float coefficientB;
-
-	coefficientB = y2 - (coefficientC * ((l1*l1) + (l1*l2) + (l2*l2))); // formula for B
-
-	return coefficientB;
-
-}
-
-float getA(float Y1, float coefficientB, float l1, float coefficientC) {
-
-	float coefficientA;
-
-	coefficientA = Y1 - ((coefficientB + ((l1*l1) * coefficientC)) * l1);
-
-	return coefficientA;
-
-}
-*/
-
 float getTemp(float coefficientA, float coefficientB, float coefficientC, float resistanceNTC) {
+	
+	/* This is where we input the resistance of the thermistor into the Steinhart-Hart
+	 * equation */
 
 	float temperature, logNTC;
 
 	logNTC = logf(resistanceNTC);
 
-	temperature = 1 / (coefficientA + (coefficientB * log(resistanceNTC)) +
+	temperature = 1 / (coefficientA + (coefficientB * logNTC) +
 			(coefficientC * (logNTC * logNTC * logNTC))); //Steinhart-Hart
 
-	return temperature - 273.15; 
+	return temperature - 273.15; //return celsius
 
 }
 
