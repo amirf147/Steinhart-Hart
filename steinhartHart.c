@@ -2,11 +2,11 @@
  * File:		steinhartHart.c
  * Author:		Amir Farhadi
  * Description:		Use the Steinhart-Hart equation to change the resistance to Celsius
- * 			when given an ADC value.
+ * 				when given an ADC value.
  */
 
 #include <stdio.h>
-#include <math.h> //remember to compile with -L
+#include <math.h> //remember to compile with option -lm
 
 float adcToResistance(float adc) {
 
