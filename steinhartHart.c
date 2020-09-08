@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <math.h> //remember to compile with option -lm
+#include "calculateABC.h"
 
 float adcToResistance(float adc) {
 
@@ -23,7 +24,7 @@ float adcToResistance(float adc) {
 	return ntc;
 }
 
-float getC(float l1, float l2, float l3, float y2, float y3) {
+/*float getC(float l1, float l2, float l3, float y2, float y3) {
 
 	// Calculates the coefficient C in the Steinhart-Hart equation
 
@@ -56,6 +57,7 @@ float getA(float Y1, float coefficientB, float l1, float coefficientC) {
 	return coefficientA;
 
 }
+*/
 
 float getTemp(float coefficientA, float coefficientB, float coefficientC, float resistanceNTC) {
 
