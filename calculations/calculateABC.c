@@ -1,5 +1,5 @@
 /*
- * File:	calculateA.c
+ * File:	calculateABC.c
  * Author: 	Amir Farhadi
  * Description:	Contains the formulas for coefficients A, B and C
  */
