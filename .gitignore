@@ -1,10 +1,12 @@
 # Ignore all object files
   
 *.o
+./Calculations/*.o
 
 # Ignore all back up files
 
 *~
+./Calculations/*.o
 
 # Ignore all executables
 
