@@ -1,0 +1,12 @@
+# Ignore all object files
+  
+*.o
+
+# Ignore all back up files
+
+*~
+
+# Ignore all executables
+
+/steinhartHart
+                         
