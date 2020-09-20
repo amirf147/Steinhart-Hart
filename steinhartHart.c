@@ -9,22 +9,7 @@
 #include <math.h>
 #include "./calculations/calculateABC.h"
 #include "./calculations/adcToResist.h"
-
-float getTemp(float coefficientA, float coefficientB, float coefficientC, float resistanceNTC) {
-	
-	/* This is where we input the resistance of the thermistor into the Steinhart-Hart
-	 * equation */
-
-	float temperature, logNTC;
-
-	logNTC = logf(resistanceNTC);
-
-	temperature = 1 / (coefficientA + (coefficientB * logNTC) +
-			(coefficientC * (logNTC * logNTC * logNTC))); //Steinhart-Hart
-
-	return temperature - 273.15; //return celsius
-
-}
+#include "./calculations/sHformula.h"
 
 int main () {
 
